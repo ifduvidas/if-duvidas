@@ -196,5 +196,5 @@ class CrudPerguntas
     }
 
 }
-//INSERT INTO perguntas (hora, data, descricao_pergunta, titulo, materia, curso, curtidas,id_usuario) VALUES (null, null ,'aaaa','meu deus','portugues',null ,null ,'41')
+
 ?>

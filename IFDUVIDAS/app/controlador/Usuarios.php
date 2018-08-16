@@ -43,8 +43,8 @@ switch ($acao) {
                 $senha = $_POST['senha'];
                 $email = $_POST['email'];
                 $data_nasc = $_POST['data_nasc'];
-                $atributo =  $_POST['atributo'];
-                $cod_tip = "5";
+                $atributo =  $_POST['atributos'];
+                $cod_tip = $_POST['cod_tip'];
 
                 $arquivo = $_FILES["foto_perf"];
                 $pasta_dir = "fotos/";
@@ -57,11 +57,13 @@ switch ($acao) {
                 $crud = new CrudUsuarios();
                 $crud->insertUsuario($novoUsuario, $arquivo_nome);
 
+                print_r($cod_tip);
+                print_r($atributo);
 
             };
 
 
-            header("location: Usuarios.php");
+            //header("location: Usuarios.php");
         }
         break;
 
