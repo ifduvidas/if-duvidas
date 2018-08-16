@@ -57,13 +57,12 @@ switch ($acao) {
                 $crud = new CrudUsuarios();
                 $crud->insertUsuario($novoUsuario, $arquivo_nome);
 
-                print_r($cod_tip);
-                print_r($atributo);
+            
 
             };
 
 
-            //header("location: Usuarios.php");
+            header("location: Usuarios.php");
         }
         break;
 
@@ -134,7 +133,7 @@ switch ($acao) {
         $crud1 = new CrudUsuarios();
         $delete = $crud1->DeleteUsuario($id_usuario);
 
-        //session_destroy();
+        session_destroy();
         header('location: Usuarios.php');
     break;   
 
@@ -196,7 +195,13 @@ switch ($acao) {
         };
         break;
 
+    case 'deletarPergunta':
+        $id_pergunta = $_GET["id_pergunta"];
+        $crud1 = new CrudPerguntas();
+        $delete = $crud1->deletePergunta($id_pergunta);
+        header('location: Usuarios.php');
 
+        break;
     case 'busca':
         $busca = $_POST['pesquisa'];
 

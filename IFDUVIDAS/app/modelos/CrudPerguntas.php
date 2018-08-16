@@ -76,7 +76,7 @@ class CrudPerguntas
     public function deletePergunta($id_pergunta)
     {
 
-        $consulta = "DELETE FROM perguntas WHERE id_pergunta = {$id_pergunta}";
+        $consulta = "DELETE FROM perguntas WHERE id_pergunta = $id_pergunta";
         try {
             $res = $this->conexao->exec($consulta);
             //return $res;
