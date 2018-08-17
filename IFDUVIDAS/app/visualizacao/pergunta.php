@@ -18,7 +18,7 @@ function recarregarCurtida() {
 <div class="ui sixteen wide divided grid">
 		<div class="one wide column"></div>
 		<div class="three wide column" id="divImagem">
-      <img src="<?=$pergunta['foto_perf']?>">
+      <img class="ui fluid image" src="<?=$pergunta['foto_perf']?>">
     
 
     <h4><?=$pergunta['Nome']?></h4>
@@ -58,11 +58,17 @@ function recarregarCurtida() {
 		<div class="seven wide column">
 			<div class="ui comments">
   <h3 class="ui dividing header">Comentarios</h3>
+
   <?php foreach ($comentarios as $comentario) { ?>
-    <div class="comment">
-    <a class="avatar">
-    </a>
-    <div class="content">
+    <div class="ui sixteen wide grid">
+      <div class="fourteen wide column">
+        <div class="comment">
+    <div class="ui sixteen wide grid">
+      <div class="two wide column">
+        <img class="ui fluid image" src="<?=$comentario['foto_perf']?>">
+      </div>
+      <div class="fourteen wide column">
+        <div class="content">
     <a href="../controlador/Usuarios.php?acao=paginaDoUsuario&id_usuario=<?=$comentario['id_usuario']?>&cod_tip=<?=$comentario['cod_tip']?>"  class="author"><?=$comentario['Nome']?></a></a>
       
       <div class="metadata">
@@ -73,8 +79,27 @@ function recarregarCurtida() {
       </div>
     </div>
     </div>
+      </div>
+      </div>
+    </div>
+    <div class="two wide column">
+        <?php if  (isset($_SESSION['id_usuario']) and $comentario['id_usuario'] == $_SESSION['id_usuario']){  ?>
+  <a href="../controlador/Usuarios.php?acao=deletarComentario&id_comentario=<?=$comentario['id_comentario']?>">
+    <button class="circular ui negative icon button">
+  <i class="trash alternate icon"></i>
+    </button>
+  </a>
+<?php }; ?>
+      </div>
+      </div>
+      
+      
+
+    
+
     
   <?php } ?>
+
       <?php 
       if (isset($_SESSION['id_usuario']) and $_SESSION['cod_tip'] == 5) { ?>
         <form class="ui reply form" method="post" action="../controlador/Usuarios.php?acao=pergunta&id_pergunta=<?=$pergunta['id_pergunta']?>&cod_tip=<?=$pergunta['cod_tip']?>">
@@ -100,12 +125,18 @@ function recarregarCurtida() {
       <h3 class="ui dividing header">Respostas</h3>
 
       <?php foreach ($respostas as $resposta) { ?>
-        
-        <div class="comment">
-    <a class="avatar">
-      
+
+      <div class="ui sixteen wide grid">
+        <div class="fourteen wide column">
+          <div class="comment">
+            <div class="ui sixteen wide grid">
+              <div class="two wide column">
+                <a>
+      <img class="ui fluid image" src="<?=$resposta['foto_perf']?>">
     </a>
-    <div class="content">
+              </div>
+              <div class="fourteen wide column">
+                <div class="content">
       <a href="../controlador/Usuarios.php?acao=paginaDoUsuario&id_usuario=<?=$resposta['id_usuario']?>&cod_tip=<?=$resposta['cod_tip']?>"  class="author"><?=$resposta['Nome']?></a></a>
       <div class="metadata">
         <div class="date"><?=$resposta['data_resposta']?></div>
@@ -114,7 +145,27 @@ function recarregarCurtida() {
         <p><?=$resposta['texto_resposta']?></p>
       </div>
     </div>
+              </div>
+            </div>
+
+
+    
+    
   </div>
+        </div>
+        <div class="two wide column">
+          <?php if  (isset($_SESSION['id_usuario']) and $resposta['id_usuario'] == $_SESSION['id_usuario']){  ?>
+  <a href="../controlador/Usuarios.php?acao=deletarResposta&id_resposta=<?=$resposta['id_resposta']?>">
+    <button class="circular ui negative icon button">
+  <i class="trash alternate icon"></i>
+    </button>
+  </a>
+<?php }; ?>
+        </div>
+      </div>
+
+
+        
       <?php } ?>
 
 
@@ -139,3 +190,4 @@ function recarregarCurtida() {
 
 </body>
 </html>
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Ago-2018 às 02:21
+-- Generation Time: 17-Ago-2018 às 02:48
 -- Versão do servidor: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -37,6 +37,13 @@ CREATE TABLE `aluno_comenta` (
   `id_comentario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `aluno_comenta`
+--
+
+INSERT INTO `aluno_comenta` (`id_pergunta`, `id_usuario`, `data_comentario`, `texto_comentario`, `status`, `id_comentario`) VALUES
+(57, 58, '2018-08-17', 'aaa', NULL, 9);
+
 -- --------------------------------------------------------
 
 --
@@ -60,7 +67,100 @@ INSERT INTO `curtida` (`id_usuario`, `id_pergunta`) VALUES
 (58, 56),
 (58, 56),
 (58, 56),
-(58, 56);
+(58, 56),
+(58, 54),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(59, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57),
+(58, 57);
 
 -- --------------------------------------------------------
 
@@ -86,9 +186,7 @@ CREATE TABLE `perguntas` (
 --
 
 INSERT INTO `perguntas` (`hora`, `data`, `descricao_pergunta`, `titulo`, `materia`, `id_pergunta`, `id_usuario`, `curso`, `curtidas`, `status`) VALUES
-('00:00:20', '0000-00-00', 'teste', 'teste', 'matematica', 54, 58, '', '20', NULL),
-('00:00:20', '0000-00-00', 'teste', 'teste', 'matematica', 55, NULL, '', '21', NULL),
-('00:11:06', '2018-08-16', 'aaaa', 'aaaa', 'matematica', 56, 58, '', '7', NULL);
+('22:57:42', '2018-08-16', 'teste', 'quanto Ã©?', 'matematica', 57, 58, 'informatica', '92', 1);
 
 -- --------------------------------------------------------
 
@@ -103,6 +201,13 @@ CREATE TABLE `prof_resposta` (
   `texto_resposta` varchar(150) DEFAULT NULL,
   `id_resposta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `prof_resposta`
+--
+
+INSERT INTO `prof_resposta` (`id_pergunta`, `id_usuario`, `data_resposta`, `texto_resposta`, `id_resposta`) VALUES
+(57, 59, '2018-08-16', 'ola', 16);
 
 -- --------------------------------------------------------
 
@@ -146,7 +251,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`Nome`, `senha`, `email`, `data_nasc`, `atributo`, `foto_perf`, `id_usuario`, `cod_tip`) VALUES
-('Joao', '123', 'joao@gmail.com', '2018-08-02', '', 'fotos/joe.jpg', 58, 5);
+('Joao', '123', 'joao@gmail.com', '2018-08-02', '', 'fotos/joe.jpg', 58, 5),
+('professor', '123', 'professor@professor.com', '2018-08-03', 'MatemÃ¡tica', 'fotos/elliot.jpg', 59, 4);
 
 --
 -- Indexes for dumped tables
@@ -197,25 +303,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `aluno_comenta`
 --
 ALTER TABLE `aluno_comenta`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `perguntas`
 --
 ALTER TABLE `perguntas`
-  MODIFY `id_pergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_pergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `prof_resposta`
 --
 ALTER TABLE `prof_resposta`
-  MODIFY `id_resposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_resposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- Constraints for dumped tables
@@ -226,20 +332,20 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `aluno_comenta`
   ADD CONSTRAINT `aluno_comenta_ibfk_1` FOREIGN KEY (`id_pergunta`) REFERENCES `perguntas` (`id_pergunta`),
-  ADD CONSTRAINT `aluno_comenta_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `aluno_comenta_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `perguntas`
 --
 ALTER TABLE `perguntas`
-  ADD CONSTRAINT `perguntas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `perguntas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `prof_resposta`
 --
 ALTER TABLE `prof_resposta`
   ADD CONSTRAINT `prof_resposta_ibfk_1` FOREIGN KEY (`id_pergunta`) REFERENCES `perguntas` (`id_pergunta`),
-  ADD CONSTRAINT `prof_resposta_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `prof_resposta_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `usuarios`

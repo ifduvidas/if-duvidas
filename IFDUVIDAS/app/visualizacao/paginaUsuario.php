@@ -8,7 +8,7 @@
 					<div id="frente">
 			<div>
 
-				<img src='<?=$usuario['foto_perf']?>'>
+				<img class="ui fluid image" src='<?=$usuario['foto_perf']?>'>
 			</div>
 			<div class="four wide column" id="sobre_usuario" >
 					<h1> <?=$usuario['Nome']?> </h2>

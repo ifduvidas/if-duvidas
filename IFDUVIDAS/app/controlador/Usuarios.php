@@ -25,11 +25,11 @@ switch ($acao) {
 
         include '../visualizacao/head.php';
         include '../visualizacao/index.php';
-        include '../visualizacao/footer.php';
+        include '../visualizacao/footer_smallpage.php';
         break;
 
 
-    case 'cadastrar';
+    case 'cadastrar':
         if (!isset($_POST['gravar'])) { // se ainda nao tiver preenchido o form
             include '../visualizacao/head.php';
             include '../visualizacao/cadastro.php';
@@ -43,8 +43,20 @@ switch ($acao) {
                 $senha = $_POST['senha'];
                 $email = $_POST['email'];
                 $data_nasc = $_POST['data_nasc'];
-                $atributo =  $_POST['atributos'];
-                $cod_tip = $_POST['cod_tip'];
+                $atributo =  $_POST['atributo'];
+                $tipo = $_POST['cod_tip'];
+                
+                switch ($tipo) {
+                    case 'Aluno':
+                        $cod_tip = '5';
+
+
+                        break;
+
+                    case'Professor':
+                        $cod_tip = '4';
+                        break;
+                }
 
                 $arquivo = $_FILES["foto_perf"];
                 $pasta_dir = "fotos/";
@@ -57,7 +69,6 @@ switch ($acao) {
                 $crud = new CrudUsuarios();
                 $crud->insertUsuario($novoUsuario, $arquivo_nome);
 
-            
 
             };
 
@@ -149,7 +160,19 @@ switch ($acao) {
             $email = $_POST['email'];
             $data_nasc = $_POST['data_nasc'];
             $atributo =  $_POST['atributo'];
-            $cod_tip = "5";
+            $tipo = $_POST['cod_tip'];
+                
+                switch ($tipo) {
+                    case 'Aluno':
+                        $cod_tip = '5';
+
+
+                        break;
+
+                    case'Professor':
+                        $cod_tip = '4';
+                        break;
+                }
 
             $arquivo = $_FILES["foto_perf"];
             $pasta_dir = "fotos/";
@@ -269,6 +292,20 @@ switch ($acao) {
         include '../visualizacao/pergunta.php';
         include '../visualizacao/footer.php';
 
+        break;
+
+        case 'deletarComentario':
+        $id_comentario= $_GET["id_comentario"];
+        $crud1 = new CrudComentarios();
+        $delete = $crud1->deleteComentario($id_comentario);
+        header('location: Usuarios.php');
+        break;
+
+        case 'deletarResposta':
+        $id_resposta= $_GET["id_resposta"];
+        $crud1 = new crudRespostas();
+        $delete = $crud1->deleteResposta($id_resposta);
+        header('location: Usuarios.php');
         break;
 
 
