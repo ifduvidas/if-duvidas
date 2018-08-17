@@ -18,9 +18,10 @@ function recarregarCurtida() {
 <div class="ui sixteen wide divided grid">
 		<div class="one wide column"></div>
 		<div class="three wide column" id="divImagem">
-      <img class="ui fluid image" src="<?=$pergunta['foto_perf']?>">
+     <a href="../controlador/Usuarios.php?acao=paginaDoUsuario&id_usuario=<?=$pergunta['id_usuario']?>&cod_tip=<?=$pergunta['cod_tip']?>"> 
+      <img class="ui fluid image" src="<?=$pergunta['foto_perf']?>"> </a>
     
-
+    
     <h4><?=$pergunta['Nome']?></h4>
 	</div>
 		<div class="eleven wide column" id="divPergunta">

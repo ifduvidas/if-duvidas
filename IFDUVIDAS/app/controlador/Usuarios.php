@@ -150,6 +150,10 @@ switch ($acao) {
 
         case 'alterarUsuario':
         if (!isset($_POST['gravar'])) { 
+            $id_usuario = $_SESSION['id_usuario'];
+            $crud1 = new CrudUsuarios();
+            $usuario = $crud1->getUsuario($id_usuario); 
+
             include '../visualizacao/head.php';
             include '../visualizacao/alterarUsuario.php';
             include '../visualizacao/footer.php';

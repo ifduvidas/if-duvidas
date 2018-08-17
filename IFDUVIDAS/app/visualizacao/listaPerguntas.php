@@ -122,6 +122,26 @@
                             <?php } ?>
 
 
+                <?php if (isset($_GET['filtro'])and $_GET['filtro'] == "maisCurtidas"){ ?>
+                        <div class="eleven wide column">
+                            <h1 align="center" class="ui header">Perguntas Mais Curtidas</h1>
+
+                            <?php
+                            foreach ($perguntasMaisCurtidas as $pergunta):?>
+
+                                <div class="ui vertical segment">
+                                    <?php if ($pergunta['status'] == "1") { ?>
+                                        <a class="ui green right ribbon label">Respondida</a>
+                                    <?php } ?>
+                                    <a href="../controlador/Usuarios.php?acao=pergunta&id_pergunta=<?=$pergunta['id_pergunta']?>" style="color: inherit; "><h3><?=$pergunta['titulo']?></h3></a>
+                                    <p> <?=$pergunta['descricao_pergunta']?> </p>
+                                </div>
+
+                            <?php endforeach
+                            ?>
+                            <?php } ?>
+
+
         <div class="one wide column"></div>
 
 

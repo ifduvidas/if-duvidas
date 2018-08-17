@@ -11,48 +11,46 @@
 				<img class="ui fluid image" src='<?=$usuario['foto_perf']?>'>
 			</div>
 			<div class="four wide column" id="sobre_usuario" >
-					<h1> <?=$usuario['Nome']?> </h2>
+					<h1> <?=$usuario['Nome']?> </h1>
 
 					<?php if ($usuario['cod_tip'] == '5'){ ?>
-						<h2> Turma: <?=$usuario['atributo']?> </h3>
+						<h2> Turma: <?=$usuario['atributo']?> </h2>
 						<h2>Perguntas feitas: <?=$numDePergutas['numeroDePerguntas']?></h3>
 					<?php }; ?>
 
 					<?php if ($usuario['cod_tip'] == '4'){ ?>
-						<h2> Leciona: <?=$usuario['atributo']?> </h3>
+						<h2> Leciona: <?=$usuario['atributo']?> </h2>
 						<!--<h2>Perguntas respondidas:<b> </h3> -->
 					<?php }; ?> 
+			</div>	
 
-		<?php if ($_SESSION['id_usuario'] == $usuario['id_usuario']) { ?>
-			<div id="botoes">
-		<a  href="../controlador/Usuarios.php?acao=alterarUsuario">
-		 <div class="ui animated button" id="configuracoes" tabindex="0">
-  			<div class="visible content">Configurações</div>
+		<?php if (isset($_SESSION['id_usuario']) and $_SESSION['id_usuario'] == $usuario['id_usuario']) { ?>
+			<div class="ui  buttons" id="botoes">
+		<a id="botao" href="../controlador/Usuarios.php?acao=alterarUsuario">
+		 <div class="ui animated button" tabindex="0">
+  			<div class="visible content">Alterar Informações</div>
   				<div class="hidden content">
     				<i class="settings icon"></i>
   				</div>
 		</div> </a>
-		<a href="../controlador/Usuarios.php?acao=deletarUsuario"> 
-		<div class="ui animated button" id="excluir" tabindex="0">
+		<a id="botao" href="../controlador/Usuarios.php?acao=deletarUsuario"> 
+		<div class="fluid ui animated negative button"  tabindex="0">
   			<div class="visible content">Deletar Conta</div>
   				<div class="hidden content">
-    				<i class="power off icon"></i>
+    				<i class="trash alternate icon"></i>
   				</div>
 		</div></a>
 			</div>		
 		<?php } ?>
 		
 				</div>
-			</div>
+
+
 
 
 					<div  id="tras">		
 			<img id="imagem_tras" src="http://www.technikart.com/wp-content/uploads/2017/05/twin-peaks.jpg">			
 				</div>
-
-
-		
-
 
    
    	<div class="ui grid" id="conteudo">

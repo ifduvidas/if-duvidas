@@ -60,19 +60,19 @@
     <form class="ui equal width aligned segment form" method="post" action="../controlador/Usuarios.php?acao=alterarUsuario" enctype='multipart/form-data'>
    <div class="field">
     <label>Novo Nome</label>
-    <input type="text" name="nome">
+    <input value="<?=$usuario['Nome']?>" type="text" name="nome">
   </div>
   <div class="field">
     <label>Nova Senha</label>
-    <input type="password" name="senha">
+    <input value="<?=$usuario['senha']?>" type="password" name="senha">
   </div>
    <div class="field">
     <label>Novo Email</label>
-    <input type="email" name="email">
+    <input value="<?=$usuario['email']?>" type="email" name="email">
   </div>
    <div class="field">
     <label>Nova Data de nascimento</label>
-    <input type="date" name="data_nasc">
+    <input value="<?=$usuario['data_nasc']?>" type="date" name="data_nasc">
   </div>  
   <div class="field">
     <label>Você é...</label>

@@ -95,6 +95,7 @@ body {
 
 #sobre_usuario{
 	text-align: center;
+	height: 35%;
 }
 
 #tras{
@@ -111,7 +112,12 @@ body {
 	margin-left: 425px;
 }
 
-#botoes{ 
-	margin-top:70px;
-	justify-content: left;
+#botoes{
+	width: 350px;
+	height: 15%;
+}
+
+#botao{
+	width: 100%;
+	margin: 0px;
 }

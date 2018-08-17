@@ -119,7 +119,7 @@ class CrudPerguntas
 
     public function perguntasMaisCurtidas()
     {
-        $sql = "SELECT p.id_pergunta,p.descricao_pergunta, p.titulo from perguntas as p, curtida as c where p.id_pergunta = c.id_pergunta GROUP by c.id_pergunta ORDER by COUNT(p.curtidas)";
+        $sql = "SELECT p.id_pergunta,p.descricao_pergunta, p.titulo, p.status from perguntas as p, curtida as c where p.id_pergunta = c.id_pergunta GROUP by c.id_pergunta ORDER by COUNT(p.curtidas) desc";
         $resultado = $this->conexao->query($sql);
 
         $perguntas = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -177,6 +177,21 @@ class CrudPerguntas
 
             if ($atualizar_curtidas) {
                 $inserir_curtida = $this->conexao->exec("insert into curtida (id_usuario, id_pergunta) values ('{$id_usuario}','{$id_pergunta}')");
+            if ($inserir_curtida) {
+                return true;
+            }else{
+                return false;
+            }
+    }
+}
+            function descurtir($id_pergunta, $id_usuario)
+    {
+            $sql = "update perguntas set curtidas = curtidas-1 where id_pergunta='{$id_pergunta}'";
+
+            $atualizar_curtidas = $this->conexao->exec($sql);
+
+            if ($atualizar_curtidas) {
+                $inserir_curtida = $this->conexao->exec("DELETE FROM curtida WHERE id_pergunta = $id_pergunta and id_usuario = $id_usuario");
             if ($inserir_curtida) {
                 return true;
             }else{

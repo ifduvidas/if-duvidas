@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: 17-Ago-2018 às 02:48
--- Versão do servidor: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Host: localhost
+-- Generation Time: 17-Ago-2018 às 09:12
+-- Versão do servidor: 5.7.21-0ubuntu0.16.04.1
+-- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -42,7 +40,10 @@ CREATE TABLE `aluno_comenta` (
 --
 
 INSERT INTO `aluno_comenta` (`id_pergunta`, `id_usuario`, `data_comentario`, `texto_comentario`, `status`, `id_comentario`) VALUES
-(57, 58, '2018-08-17', 'aaa', NULL, 9);
+(60, 61, '2018-08-17', 'Meu amigo, tem vÃ¡rios!', NULL, 11),
+(59, 61, '2018-08-17', 'Que eu sei, existem as substantivas, adjetivas e adverbias.', NULL, 12),
+(61, 60, '2018-08-17', 'Ã‰ um sistema econÃ´mico e polÃ­tico', NULL, 13),
+(63, 60, '2018-08-17', 'Para mim, ler bastante colunas de jornais ajuda bastante no repertÃ³rio', NULL, 14);
 
 -- --------------------------------------------------------
 
@@ -160,7 +161,58 @@ INSERT INTO `curtida` (`id_usuario`, `id_pergunta`) VALUES
 (58, 57),
 (58, 57),
 (58, 57),
-(58, 57);
+(58, 57),
+(60, 58),
+(61, 62),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 60),
+(61, 59),
+(61, 59),
+(61, 59),
+(60, 61),
+(60, 61),
+(60, 61),
+(60, 63),
+(60, 63),
+(60, 63),
+(60, 63),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 60),
+(62, 61),
+(62, 61),
+(62, 61),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 59),
+(63, 63),
+(63, 63),
+(63, 63),
+(63, 63),
+(63, 63);
 
 -- --------------------------------------------------------
 
@@ -186,7 +238,10 @@ CREATE TABLE `perguntas` (
 --
 
 INSERT INTO `perguntas` (`hora`, `data`, `descricao_pergunta`, `titulo`, `materia`, `id_pergunta`, `id_usuario`, `curso`, `curtidas`, `status`) VALUES
-('22:57:42', '2018-08-16', 'teste', 'quanto Ã©?', 'matematica', 57, 58, 'informatica', '92', 1);
+('11:34:15', '2018-08-17', 'Quantos tipos de oraÃ§Ã£o subordinada existem?', 'OraÃ§Ãµes Subordinadas', 'portugues', 59, 60, 'agropecuaria', '14', 1),
+('11:36:09', '2018-08-17', 'Quais sÃ£o os tipos de solo aqui no estado de SC?', 'Solos', 'geografia', 60, 60, 'agropecuaria', '20', 1),
+('11:38:14', '2018-08-17', 'Se discute muito sobre esse tema, mas nunca me aprofundei. O que seria exatamente?', 'Comunismo', 'geografia', 61, 61, 'informatica', '6', 1),
+('11:41:20', '2018-08-17', 'Poderiam me informar sobre algumas dicas para se fazer uma boa redaÃ§Ã£o?', 'RedaÃ§Ã£o', 'portugues', 63, 61, 'informatica', '9', 1);
 
 -- --------------------------------------------------------
 
@@ -207,7 +262,13 @@ CREATE TABLE `prof_resposta` (
 --
 
 INSERT INTO `prof_resposta` (`id_pergunta`, `id_usuario`, `data_resposta`, `texto_resposta`, `id_resposta`) VALUES
-(57, 59, '2018-08-16', 'ola', 16);
+(60, 62, '2018-08-17', 'Cambissolo Bruno HÃºmico, Cambissolo Bruno, Cambissolo e Cambissolo HÃºmico correspondem a mais da metade do solo de SC', 18),
+(61, 62, '2018-08-17', 'Cara estudante, Ã© uma organizaÃ§Ã£o socioeconÃ´mica baseada na propriedade coletiva dos meios de produÃ§Ã£o', 19),
+(59, 63, '2018-08-17', 'OraÃ§Ã£o subordinada substantiva subjetiva; OraÃ§Ã£o subordinada substantiva objetiva direta; OraÃ§Ã£o subordinada substantiva objetiva indireta;', 20),
+(59, 63, '2018-08-17', 'OraÃ§Ã£o subordinada substantiva completiva nominal; OraÃ§Ã£o subordinada substantiva predicativa; OraÃ§Ã£o subordinada substantiva apositiva.', 21),
+(59, 63, '2018-08-17', 'OraÃ§Ã£o subordinada adjetiva explicativa; OraÃ§Ã£o subordinada adjetiva restritiva.', 22),
+(63, 63, '2018-08-17', ' Estruture seu texto adequadamente, Anote as ideias principais que servirÃ£o como argumentos', 23),
+(63, 63, '2018-08-17', 'Organize cada parÃ¡grafo do texto e Entenda as etapas de uma boa redaÃ§Ã£o', 24);
 
 -- --------------------------------------------------------
 
@@ -251,8 +312,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`Nome`, `senha`, `email`, `data_nasc`, `atributo`, `foto_perf`, `id_usuario`, `cod_tip`) VALUES
-('Joao', '123', 'joao@gmail.com', '2018-08-02', '', 'fotos/joe.jpg', 58, 5),
-('professor', '123', 'professor@professor.com', '2018-08-03', 'MatemÃ¡tica', 'fotos/elliot.jpg', 59, 4);
+('marcao', 'marcao', 'marcao@gmail.com', '2000-05-08', '1AGRO1', 'fotos/christian.jpg', 60, 5),
+('antonia', 'antonia', 'antonia@gmail.com', '2002-12-10', '3INFO2', 'fotos/kristy.png', 61, 5),
+('geraldo', 'geraldo', 'geraldo@gmail.com', '1970-11-10', 'Geografia', 'fotos/joe.jpg', 62, 4),
+('rose', 'rose', 'rose@gmail.com', '1985-02-15', 'PortuguÃªs', 'fotos/ade.jpg', 63, 4);
 
 --
 -- Indexes for dumped tables
@@ -303,26 +366,22 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `aluno_comenta`
 --
 ALTER TABLE `aluno_comenta`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `perguntas`
 --
 ALTER TABLE `perguntas`
-  MODIFY `id_pergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
-
+  MODIFY `id_pergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `prof_resposta`
 --
 ALTER TABLE `prof_resposta`
-  MODIFY `id_resposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
+  MODIFY `id_resposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
-
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- Constraints for dumped tables
 --
@@ -352,7 +411,6 @@ ALTER TABLE `prof_resposta`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`cod_tip`) REFERENCES `tip_user` (`cod_tip`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

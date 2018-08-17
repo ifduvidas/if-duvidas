@@ -61,6 +61,7 @@
           Perfil
        </a>
        <a class="item" href="../controlador/Usuarios.php?acao=logout">
+          <i class="power off icon"></i>
           Logout
        </a>
 
